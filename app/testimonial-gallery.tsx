@@ -1,6 +1,8 @@
 "use client"
 
-import { useState } from "react"
+import type React from "react"
+
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -40,6 +42,22 @@ const testimonials = [
 
 export default function TestimonialGallery() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null)
+  const [isDesktop, setIsDesktop] = useState(false)
+
+  const handleRedirectToCheckout = () => {
+    window.open("https://pay.kiwify.com.br/BPMXegH", "_blank")
+  }
+
+  useEffect(() => {
+    const checkIsDesktop = () => {
+      setIsDesktop(window.innerWidth >= 768)
+    }
+
+    checkIsDesktop()
+    window.addEventListener("resize", checkIsDesktop)
+
+    return () => window.removeEventListener("resize", checkIsDesktop)
+  }, [])
 
   const openModal = (index: number) => {
     setSelectedImage(index)
@@ -61,10 +79,16 @@ export default function TestimonialGallery() {
     }
   }
 
+  const handleBackdropClick = (e: React.MouseEvent) => {
+    if (isDesktop && e.target === e.currentTarget) {
+      closeModal()
+    }
+  }
+
   return (
     <>
       {/* Grid de Depoimentos */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
         {testimonials.map((testimonial, index) => (
           <div
             key={index}
@@ -77,19 +101,25 @@ export default function TestimonialGallery() {
                 alt={testimonial.alt}
                 fill
                 className="object-cover object-center transition-transform duration-300 group-hover:scale-110"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
 
               {/* Overlay com efeito hover */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute bottom-4 left-4 right-4">
-                  <h3 className="text-white font-bold text-lg mb-2">{testimonial.title}</h3>
-                  <p className="text-[#2FFF4E] text-sm font-medium">Clique para ver completo</p>
+                <div className="absolute bottom-3 md:bottom-4 left-3 md:left-4 right-3 md:right-4">
+                  <h3 className="text-white font-bold text-sm md:text-lg mb-1 md:mb-2">{testimonial.title}</h3>
+                  <p className="text-[#2FFF4E] text-xs md:text-sm font-medium">Clique para ver completo</p>
                 </div>
               </div>
 
               {/* Ícone de expansão */}
-              <div className="absolute top-4 right-4 w-8 h-8 bg-[#2FFF4E]/20 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <svg className="w-4 h-4 text-[#2FFF4E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="absolute top-3 md:top-4 right-3 md:right-4 w-6 h-6 md:w-8 md:h-8 bg-[#2FFF4E]/20 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <svg
+                  className="w-3 h-3 md:w-4 md:h-4 text-[#2FFF4E]"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -104,14 +134,15 @@ export default function TestimonialGallery() {
       </div>
 
       {/* Call to Action */}
-      <div className="text-center mt-12">
-        <p className="text-xl text-[#BFBFBF] mb-6">
+      <div className="text-center mt-8 md:mt-12">
+        <p className="text-lg md:text-xl text-[#BFBFBF] mb-4 md:mb-6">
           ✨ <strong className="text-[#2FFF4E]">Estes são apenas alguns</strong> dos centenas de depoimentos que
           recebemos diariamente!
         </p>
         <Button
           size="lg"
-          className="bg-[#2FFF4E] hover:bg-[#2FFF4E]/90 text-black font-bold text-lg px-8 py-6 rounded-xl shadow-lg hover:shadow-[#2FFF4E]/25 transition-all duration-300 hover:scale-105"
+          className="bg-[#2FFF4E] hover:bg-[#2FFF4E]/90 text-black font-bold text-base md:text-lg px-6 md:px-8 py-4 md:py-6 rounded-xl shadow-lg hover:shadow-[#2FFF4E]/25 transition-all duration-300 hover:scale-105 w-full sm:w-auto"
+          onClick={handleRedirectToCheckout}
         >
           🚀 Quero Ser o Próximo Depoimento
         </Button>
@@ -119,16 +150,19 @@ export default function TestimonialGallery() {
 
       {/* Modal/Lightbox */}
       {selectedImage !== null && (
-        <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div
+          className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={handleBackdropClick}
+        >
           <div className="relative max-w-4xl max-h-[90vh] w-full">
             {/* Botão Fechar */}
             <Button
               onClick={closeModal}
               variant="ghost"
               size="icon"
-              className="absolute -top-12 right-0 text-white hover:text-[#2FFF4E] hover:bg-white/10 z-10"
+              className="absolute -top-8 md:-top-12 right-0 text-white hover:text-[#2FFF4E] hover:bg-white/10 z-10"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5 md:w-6 md:h-6" />
             </Button>
 
             {/* Navegação */}
@@ -136,18 +170,18 @@ export default function TestimonialGallery() {
               onClick={prevImage}
               variant="ghost"
               size="icon"
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-[#2FFF4E] hover:bg-white/10 z-10"
+              className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 text-white hover:text-[#2FFF4E] hover:bg-white/10 z-10"
             >
-              <ChevronLeft className="w-8 h-8" />
+              <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
             </Button>
 
             <Button
               onClick={nextImage}
               variant="ghost"
               size="icon"
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-[#2FFF4E] hover:bg-white/10 z-10"
+              className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 text-white hover:text-[#2FFF4E] hover:bg-white/10 z-10"
             >
-              <ChevronRight className="w-8 h-8" />
+              <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
             </Button>
 
             {/* Imagem */}
@@ -158,18 +192,19 @@ export default function TestimonialGallery() {
                 width={800}
                 height={1000}
                 className="max-w-full max-h-full object-contain rounded-xl"
+                sizes="(max-width: 768px) 100vw, 800px"
               />
             </div>
 
             {/* Título */}
-            <div className="absolute bottom-4 left-4 right-4 text-center">
-              <h3 className="text-white font-bold text-xl bg-black/50 backdrop-blur-sm rounded-lg px-4 py-2">
+            <div className="absolute bottom-2 md:bottom-4 left-2 md:left-4 right-2 md:right-4 text-center">
+              <h3 className="text-white font-bold text-base md:text-xl bg-black/50 backdrop-blur-sm rounded-lg px-3 md:px-4 py-2">
                 {testimonials[selectedImage].title}
               </h3>
             </div>
 
             {/* Indicadores */}
-            <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 flex space-x-2">
+            <div className="absolute -bottom-8 md:-bottom-12 left-1/2 -translate-x-1/2 flex space-x-2">
               {testimonials.map((_, index) => (
                 <button
                   key={index}
