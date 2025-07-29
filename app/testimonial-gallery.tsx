@@ -4,7 +4,7 @@ import type React from "react"
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import { X, ChevronLeft, ChevronRight } from "lucide-react"
+import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 
 const testimonials = [
@@ -37,6 +37,36 @@ const testimonials = [
     src: "/images/testimonial-6.jpg",
     alt: "Depoimento de Lucas - Trading profissional",
     title: "Lucas - Trader Profissional",
+  },
+  {
+    src: "/images/feedback-julia.png",
+    alt: "Depoimento de Julia - Comprando pizza com lucros do trading",
+    title: "Julia - Vivendo com os Lucros",
+  },
+  {
+    src: "/images/feedback-camila.png",
+    alt: "Depoimento de Camila - Maior resultado até agora",
+    title: "Camila - Maior Resultado",
+  },
+  {
+    src: "/images/feedback-leticia.png",
+    alt: "Depoimento de Letícia - Saldo de R$ 3.197,79",
+    title: "Letícia - Primeiro Saque",
+  },
+  {
+    src: "/images/feedback-diego.png",
+    alt: "Depoimento de Diego - Pagando conta de luz com lucros",
+    title: "Diego - Contas em Dia",
+  },
+  {
+    src: "/images/feedback-gustavo.png",
+    alt: "Depoimento de Gustavo - Primeiro lucro consistente",
+    title: "Gustavo - Primeiro Lucro",
+  },
+  {
+    src: "/images/feedback-renan.png",
+    alt: "Depoimento de Renan - Primeira semana no lucro",
+    title: "Renan - Primeira Semana",
   },
 ]
 
@@ -88,7 +118,7 @@ export default function TestimonialGallery() {
   return (
     <>
       {/* Grid de Depoimentos */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
         {testimonials.map((testimonial, index) => (
           <div
             key={index}
@@ -101,7 +131,7 @@ export default function TestimonialGallery() {
                 alt={testimonial.alt}
                 fill
                 className="object-cover object-center transition-transform duration-300 group-hover:scale-110"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
               />
 
               {/* Overlay com efeito hover */}
@@ -139,13 +169,17 @@ export default function TestimonialGallery() {
           ✨ <strong className="text-[#2FFF4E]">Estes são apenas alguns</strong> dos centenas de depoimentos que
           recebemos diariamente!
         </p>
-        <Button
-          size="lg"
-          className="bg-[#2FFF4E] hover:bg-[#2FFF4E]/90 text-black font-bold text-base md:text-lg px-6 md:px-8 py-4 md:py-6 rounded-xl shadow-lg hover:shadow-[#2FFF4E]/25 transition-all duration-300 hover:scale-105 w-full sm:w-auto"
-          onClick={handleRedirectToCheckout}
-        >
-          🚀 Quero Ser o Próximo Depoimento
-        </Button>
+        <div className="flex justify-center">
+          <Button
+            size="lg"
+            className="bg-[#2FFF4E] hover:bg-[#2FFF4E]/90 text-black font-bold text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-6 rounded-xl shadow-lg hover:shadow-[#2FFF4E]/25 transition-all duration-300 hover:scale-105 max-w-full"
+            onClick={handleRedirectToCheckout}
+          >
+            <span className="text-center leading-tight">
+              🚀 Quero Ser o<br className="sm:hidden" /> Próximo Depoimento
+            </span>
+          </Button>
+        </div>
       </div>
 
       {/* Modal/Lightbox */}

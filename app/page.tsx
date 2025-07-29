@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Check, Play, Instagram, Youtube, Shield, Clock, Users, Target, BarChart3 } from "lucide-react"
 import Image from "next/image"
-import TestimonialGallery from "./testimonial-gallery"
+import TestimonialCarousel from "./testimonial-carousel"
 
 export default function LandingPage() {
   const handleRedirectToCheckout = () => {
@@ -59,13 +59,18 @@ export default function LandingPage() {
                 </p>
               </div>
 
-              <Button
-                size="lg"
-                className="bg-[#2FFF4E] hover:bg-[#2FFF4E]/90 text-black font-bold text-base md:text-lg px-6 md:px-8 py-4 md:py-6 rounded-xl shadow-lg hover:shadow-[#2FFF4E]/25 transition-all duration-300 hover:scale-105 w-full sm:w-auto"
-                onClick={handleRedirectToCheckout}
-              >
-                👉 Quero Garantir Minha Vaga Agora
-              </Button>
+              <div className="flex justify-center lg:justify-start">
+                <Button
+                  size="lg"
+                  className="bg-[#2FFF4E] hover:bg-[#2FFF4E]/90 text-black font-bold text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-6 rounded-xl shadow-lg hover:shadow-[#2FFF4E]/25 transition-all duration-300 hover:scale-105 max-w-full"
+                  onClick={handleRedirectToCheckout}
+                >
+                  <span className="text-center leading-tight">
+                    👉 Quero Garantir
+                    <br className="sm:hidden" /> Minha Vaga Agora
+                  </span>
+                </Button>
+              </div>
             </div>
             <div className="flex justify-center lg:justify-end mt-8 lg:mt-0">
               <Image
@@ -149,18 +154,23 @@ export default function LandingPage() {
                   Assista agora!
                 </p>
 
-                <Button
-                  size="lg"
-                  className="bg-[#2FFF4E] hover:bg-[#2FFF4E]/90 text-black font-bold text-base md:text-lg px-6 md:px-8 py-4 md:py-6 rounded-xl shadow-lg hover:shadow-[#2FFF4E]/25 transition-all duration-300 hover:scale-105 w-full sm:w-auto"
-                  onClick={handleRedirectToCheckout}
-                >
-                  🚀 Quero Começar Agora - Acesso Imediato
-                </Button>
+                <div className="flex justify-center">
+                  <Button
+                    size="lg"
+                    className="bg-[#2FFF4E] hover:bg-[#2FFF4E]/90 text-black font-bold text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-6 rounded-xl shadow-lg hover:shadow-[#2FFF4E]/25 transition-all duration-300 hover:scale-105 max-w-full"
+                    onClick={handleRedirectToCheckout}
+                  >
+                    <span className="text-center leading-tight">
+                      🚀 Quero Começar Agora
+                      <br className="sm:hidden" /> - Acesso Imediato
+                    </span>
+                  </Button>
+                </div>
 
                 <div className="mt-4 flex items-center justify-center space-x-4 text-sm text-[#BFBFBF]">
                   <div className="flex items-center space-x-1">
                     <div className="w-2 h-2 bg-[#2FFF4E] rounded-full animate-pulse"></div>
-                    <span>Mais de 847 pessoas assistindo agora</span>
+                    <span className="text-xs sm:text-sm">Mais de 847 pessoas assistindo agora</span>
                   </div>
                 </div>
               </div>
@@ -224,11 +234,11 @@ export default function LandingPage() {
 
             <div className="relative order-1 lg:order-2 flex justify-center">
               <Image
-                src="/images/lifestyle-cars.jpg"
+                src="/images/lifestyle-success.jpg"
                 alt="Estilo de vida de sucesso - Primos Investe"
-                width={400}
-                height={500}
-                className="rounded-2xl shadow-2xl w-full max-w-sm lg:max-w-none"
+                width={500}
+                height={600}
+                className="rounded-2xl shadow-2xl w-full max-w-sm lg:max-w-none object-cover"
               />
             </div>
           </div>
@@ -263,7 +273,7 @@ export default function LandingPage() {
 
           <Button
             size="lg"
-            className="bg-[#2FFF4E] hover:bg-[#2FFF4E]/90 text-black font-bold text-base md:text-lg px-6 md:px-8 py-4 md:py-6 rounded-xl w-full sm:w-auto"
+            className="bg-[#2FFF4E] hover:bg-[#2FFF4E]/90 text-black font-bold text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-6 rounded-xl"
             onClick={() => {
               document.getElementById("depoimentos")?.scrollIntoView({
                 behavior: "smooth",
@@ -321,7 +331,7 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <TestimonialGallery />
+          <TestimonialCarousel />
         </div>
       </section>
 
@@ -329,7 +339,7 @@ export default function LandingPage() {
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 md:mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8">
               🛒 Você Está a Um Clique de Mudar Sua Vida Financeira
             </h2>
             <p className="text-lg md:text-xl text-[#BFBFBF] mb-8 md:mb-12">
@@ -337,13 +347,18 @@ export default function LandingPage() {
               binárias.
             </p>
 
-            <Button
-              size="lg"
-              className="bg-[#2FFF4E] hover:bg-[#2FFF4E]/90 text-black font-bold text-lg md:text-xl px-8 md:px-12 py-6 md:py-8 rounded-xl shadow-lg hover:shadow-[#2FFF4E]/25 transition-all duration-300 hover:scale-105 w-full sm:w-auto"
-              onClick={handleRedirectToCheckout}
-            >
-              🔥 Quero Me Inscrever no Curso Agora
-            </Button>
+            <div className="flex justify-center">
+              <Button
+                size="lg"
+                className="bg-[#2FFF4E] hover:bg-[#2FFF4E]/90 text-black font-bold text-base sm:text-lg lg:text-xl px-6 sm:px-8 lg:px-12 py-4 sm:py-6 lg:py-8 rounded-xl shadow-lg hover:shadow-[#2FFF4E]/25 transition-all duration-300 hover:scale-105 max-w-full"
+                onClick={handleRedirectToCheckout}
+              >
+                <span className="text-center leading-tight">
+                  🔥 Quero Me Inscrever
+                  <br className="sm:hidden" /> no Curso Agora
+                </span>
+              </Button>
+            </div>
 
             <div className="mt-6 md:mt-8 flex items-center justify-center space-x-4 text-[#BFBFBF]">
               <Shield className="w-4 h-4 md:w-5 md:h-5" />
