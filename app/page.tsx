@@ -62,13 +62,10 @@ export default function LandingPage() {
               <div className="flex justify-center lg:justify-start">
                 <Button
                   size="lg"
-                  className="bg-[#2FFF4E] hover:bg-[#2FFF4E]/90 text-black font-bold text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-6 rounded-xl shadow-lg hover:shadow-[#2FFF4E]/25 transition-all duration-300 hover:scale-105 max-w-full"
+                  className="bg-[#2FFF4E] hover:bg-[#2FFF4E]/90 text-black font-bold text-base px-8 py-4 rounded-xl shadow-lg hover:shadow-[#2FFF4E]/25 transition-all duration-300 hover:scale-105 w-full max-w-sm"
                   onClick={handleRedirectToCheckout}
                 >
-                  <span className="text-center leading-tight">
-                    👉 Quero Garantir
-                    <br className="sm:hidden" /> Minha Vaga Agora
-                  </span>
+                  👉 Quero Garantir Minha Vaga Agora
                 </Button>
               </div>
             </div>
@@ -157,13 +154,10 @@ export default function LandingPage() {
                 <div className="flex justify-center">
                   <Button
                     size="lg"
-                    className="bg-[#2FFF4E] hover:bg-[#2FFF4E]/90 text-black font-bold text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-6 rounded-xl shadow-lg hover:shadow-[#2FFF4E]/25 transition-all duration-300 hover:scale-105 max-w-full"
+                    className="bg-[#2FFF4E] hover:bg-[#2FFF4E]/90 text-black font-bold text-base px-8 py-4 rounded-xl shadow-lg hover:shadow-[#2FFF4E]/25 transition-all duration-300 hover:scale-105 w-full max-w-sm"
                     onClick={handleRedirectToCheckout}
                   >
-                    <span className="text-center leading-tight">
-                      🚀 Quero Começar Agora
-                      <br className="sm:hidden" /> - Acesso Imediato
-                    </span>
+                    🚀 Quero Começar Agora - Acesso Imediato
                   </Button>
                 </div>
 
@@ -350,13 +344,10 @@ export default function LandingPage() {
             <div className="flex justify-center">
               <Button
                 size="lg"
-                className="bg-[#2FFF4E] hover:bg-[#2FFF4E]/90 text-black font-bold text-base sm:text-lg lg:text-xl px-6 sm:px-8 lg:px-12 py-4 sm:py-6 lg:py-8 rounded-xl shadow-lg hover:shadow-[#2FFF4E]/25 transition-all duration-300 hover:scale-105 max-w-full"
+                className="bg-[#2FFF4E] hover:bg-[#2FFF4E]/90 text-black font-bold text-base px-8 py-4 rounded-xl shadow-lg hover:shadow-[#2FFF4E]/25 transition-all duration-300 hover:scale-105 w-full max-w-sm"
                 onClick={handleRedirectToCheckout}
               >
-                <span className="text-center leading-tight">
-                  🔥 Quero Me Inscrever
-                  <br className="sm:hidden" /> no Curso Agora
-                </span>
+                🔥 Quero Me Inscrever no Curso Agora
               </Button>
             </div>
 

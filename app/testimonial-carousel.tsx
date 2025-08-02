@@ -24,7 +24,7 @@ const testimonials = [
     title: "Camila - Maior Resultado",
   },
   {
-    src: "/images/feedback-gustavo.png",
+    src: "/images/feedback-gustavo-new.png",
     alt: "Depoimento de Gustavo - Primeiro lucro consistente",
     title: "Gustavo - Primeiro Lucro",
   },
@@ -44,7 +44,6 @@ export default function TestimonialCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isDragging, setIsDragging] = useState(false)
   const [startX, setStartX] = useState(0)
-  const [scrollLeft, setScrollLeft] = useState(0)
   const carouselRef = useRef<HTMLDivElement>(null)
 
   const handleRedirectToCheckout = () => {
@@ -63,62 +62,56 @@ export default function TestimonialCarousel() {
     setCurrentIndex(index)
   }
 
-  // Auto-play functionality
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (!isDragging) {
-        nextSlide()
-      }
-    }, 5000)
-
-    return () => clearInterval(interval)
-  }, [isDragging])
-
   // Touch/Mouse drag functionality
   const handleMouseDown = (e: React.MouseEvent) => {
     setIsDragging(true)
-    setStartX(e.pageX - (carouselRef.current?.offsetLeft || 0))
-    setScrollLeft(carouselRef.current?.scrollLeft || 0)
+    setStartX(e.pageX)
+    e.preventDefault()
   }
 
   const handleTouchStart = (e: React.TouchEvent) => {
     setIsDragging(true)
-    setStartX(e.touches[0].pageX - (carouselRef.current?.offsetLeft || 0))
-    setScrollLeft(carouselRef.current?.scrollLeft || 0)
+    setStartX(e.touches[0].pageX)
   }
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!isDragging) return
     e.preventDefault()
-    const x = e.pageX - (carouselRef.current?.offsetLeft || 0)
-    const walk = (x - startX) * 2
-    if (carouselRef.current) {
-      carouselRef.current.scrollLeft = scrollLeft - walk
+    const currentX = e.pageX
+    const diff = startX - currentX
+
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        nextSlide()
+      } else {
+        prevSlide()
+      }
+      setIsDragging(false)
     }
   }
 
   const handleTouchMove = (e: React.TouchEvent) => {
     if (!isDragging) return
-    const x = e.touches[0].pageX - (carouselRef.current?.offsetLeft || 0)
-    const walk = (x - startX) * 2
-    if (carouselRef.current) {
-      carouselRef.current.scrollLeft = scrollLeft - walk
+    const currentX = e.touches[0].pageX
+    const diff = startX - currentX
+
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        nextSlide()
+      } else {
+        prevSlide()
+      }
+      setIsDragging(false)
     }
   }
 
   const handleMouseUp = () => {
-    if (!isDragging) return
     setIsDragging(false)
-
-    // Determine which slide to snap to based on scroll position
-    if (carouselRef.current) {
-      const slideWidth = carouselRef.current.offsetWidth
-      const newIndex = Math.round(carouselRef.current.scrollLeft / slideWidth)
-      setCurrentIndex(Math.max(0, Math.min(newIndex, testimonials.length - 1)))
-    }
   }
 
-  const handleTouchEnd = handleMouseUp
+  const handleTouchEnd = () => {
+    setIsDragging(false)
+  }
 
   // Sync scroll position with current index
   useEffect(() => {
@@ -137,7 +130,7 @@ export default function TestimonialCarousel() {
       <div className="relative max-w-4xl mx-auto">
         <div
           ref={carouselRef}
-          className="flex overflow-x-hidden scroll-smooth cursor-grab active:cursor-grabbing"
+          className="flex overflow-x-hidden scroll-smooth cursor-grab active:cursor-grabbing select-none"
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
