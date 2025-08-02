@@ -397,7 +397,7 @@ export default function LandingPage() {
             </div>
 
             <div className="border-t border-[#2FFF4E]/20 pt-6 md:pt-8 w-full text-center">
-              <p className="text-[#BFBFBF] text-xs md:text-sm">© 2024 Primos Investe. Todos os direitos reservados.</p>
+              <p className="text-[#BFBFBF] text-xs md:text-sm">© 2025 Primos Investe. Todos os direitos reservados.</p>
             </div>
           </div>
         </div>
