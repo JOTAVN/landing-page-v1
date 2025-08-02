@@ -11,32 +11,32 @@ const testimonials = [
   {
     src: "/images/feedback-leticia.png",
     alt: "Depoimento de Letícia - Saldo de R$ 3.197,79",
-    title: "Letícia - Primeiro Saque",
+    title: "Letícia - Primeiro saque",
   },
   {
     src: "/images/feedback-julia.png",
     alt: "Depoimento de Julia - Comprando pizza com lucros do trading",
-    title: "Julia - Vivendo com os Lucros",
+    title: "Julia - Vivendo com os lucros",
   },
   {
     src: "/images/feedback-camila.png",
     alt: "Depoimento de Camila - Maior resultado até agora",
-    title: "Camila - Maior Resultado",
+    title: "Camila - Maior resultado",
   },
   {
     src: "/images/feedback-gustavo-new.png",
     alt: "Depoimento de Gustavo - Primeiro lucro consistente",
-    title: "Gustavo - Primeiro Lucro",
+    title: "Gustavo - Primeiro lucro",
   },
   {
     src: "/images/feedback-renan.png",
     alt: "Depoimento de Renan - Primeira semana no lucro",
-    title: "Renan - Primeira Semana",
+    title: "Renan - Primeira semana",
   },
   {
     src: "/images/feedback-diego.png",
     alt: "Depoimento de Diego - Pagando conta de luz com lucros",
-    title: "Diego - Contas em Dia",
+    title: "Diego - Contas em dia",
   },
 ]
 
@@ -210,7 +210,7 @@ export default function TestimonialCarousel() {
             onClick={handleRedirectToCheckout}
           >
             <span className="text-center leading-tight">
-              🚀 Quero Ser o<br className="sm:hidden" /> Próximo Depoimento
+              🚀 Quero ser o<br className="sm:hidden" /> próximo depoimento
             </span>
           </Button>
         </div>

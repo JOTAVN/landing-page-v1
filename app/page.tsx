@@ -50,8 +50,8 @@ export default function LandingPage() {
             <div className="space-y-6 md:space-y-8 text-center lg:text-left">
               <div className="space-y-4 md:space-y-6">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                  Descubra Como <span className="text-[#2FFF4E]">Lucrar</span> com Opções Binárias Mesmo Começando do{" "}
-                  <span className="text-[#2FFF4E]">Zero!</span>
+                  Descubra como <span className="text-[#2FFF4E]">lucrar</span> com opções binárias mesmo começando do{" "}
+                  <span className="text-[#2FFF4E]">zero!</span>
                 </h1>
                 <p className="text-lg md:text-xl text-[#BFBFBF] leading-relaxed">
                   Curso completo com estratégias práticas para quem quer faturar de verdade no mercado e alcançar a
@@ -62,10 +62,13 @@ export default function LandingPage() {
               <div className="flex justify-center lg:justify-start">
                 <Button
                   size="lg"
-                  className="bg-[#2FFF4E] hover:bg-[#2FFF4E]/90 text-black font-bold text-base px-8 py-4 rounded-xl shadow-lg hover:shadow-[#2FFF4E]/25 transition-all duration-300 hover:scale-105 w-full max-w-sm"
+                  className="bg-[#2FFF4E] hover:bg-[#2FFF4E]/90 text-black font-bold text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-6 rounded-xl shadow-lg hover:shadow-[#2FFF4E]/25 transition-all duration-300 hover:scale-105 max-w-full"
                   onClick={handleRedirectToCheckout}
                 >
-                  👉 Quero Garantir Minha Vaga Agora
+                  <span className="text-center leading-tight">
+                    👉 Quero garantir
+                    <br className="sm:hidden" /> minha vaga agora
+                  </span>
                 </Button>
               </div>
             </div>
@@ -86,7 +89,7 @@ export default function LandingPage() {
       <section id="curso" className="py-16 md:py-20 bg-[#1A1A1A]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6">🎓 O Que é o Curso "Lucre com Estratégia"?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6">🎓 O que é o curso "Lucre com estratégia"?</h2>
             <p className="text-lg md:text-xl text-[#BFBFBF] max-w-4xl mx-auto">
               É um treinamento 100% em vídeo desenvolvido especialmente para iniciantes e para quem já tentou mas não
               teve resultados no mercado de opções binárias.
@@ -123,7 +126,7 @@ export default function LandingPage() {
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6">🎥 Assista ao Vídeo Completo</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6">🎥 Assista ao vídeo completo</h2>
             <p className="text-lg md:text-xl text-[#BFBFBF] max-w-3xl mx-auto">
               Descubra exatamente como funciona nossa metodologia e veja resultados reais de alunos que já transformaram
               suas vidas financeiras.
@@ -147,17 +150,20 @@ export default function LandingPage() {
               {/* Call to Action abaixo do vídeo */}
               <div className="text-center mt-6 md:mt-8">
                 <p className="text-base md:text-lg text-[#BFBFBF] mb-4 md:mb-6">
-                  ⚠️ <strong className="text-[#2FFF4E]">ATENÇÃO:</strong> Este vídeo pode sair do ar a qualquer momento.
+                  ⚠️ <strong className="text-red-500">ATENÇÃO!</strong> Este vídeo pode sair do ar a qualquer momento.
                   Assista agora!
                 </p>
 
                 <div className="flex justify-center">
                   <Button
                     size="lg"
-                    className="bg-[#2FFF4E] hover:bg-[#2FFF4E]/90 text-black font-bold text-base px-8 py-4 rounded-xl shadow-lg hover:shadow-[#2FFF4E]/25 transition-all duration-300 hover:scale-105 w-full max-w-sm"
+                    className="bg-[#2FFF4E] hover:bg-[#2FFF4E]/90 text-black font-bold text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-6 rounded-xl shadow-lg hover:shadow-[#2FFF4E]/25 transition-all duration-300 hover:scale-105 max-w-full"
                     onClick={handleRedirectToCheckout}
                   >
-                    🚀 Quero Começar Agora - Acesso Imediato
+                    <span className="text-center leading-tight">
+                      🚀 Quero começar agora
+                      <br className="sm:hidden" /> - acesso imediato
+                    </span>
                   </Button>
                 </div>
 
@@ -175,7 +181,7 @@ export default function LandingPage() {
               <Card className="bg-[#1A1A1A] border-[#2FFF4E]/20 text-center">
                 <CardContent className="p-4 md:p-6">
                   <div className="text-xl md:text-2xl font-bold text-[#2FFF4E] mb-2">⏰</div>
-                  <h4 className="font-bold mb-2 text-sm md:text-base">Oferta Limitada</h4>
+                  <h4 className="font-bold mb-2 text-sm md:text-base">Oferta limitada</h4>
                   <p className="text-[#BFBFBF] text-xs md:text-sm">Apenas 50 vagas disponíveis neste mês</p>
                 </CardContent>
               </Card>
@@ -183,7 +189,7 @@ export default function LandingPage() {
               <Card className="bg-[#1A1A1A] border-[#2FFF4E]/20 text-center">
                 <CardContent className="p-4 md:p-6">
                   <div className="text-xl md:text-2xl font-bold text-[#2FFF4E] mb-2">🎯</div>
-                  <h4 className="font-bold mb-2 text-sm md:text-base">Acesso Imediato</h4>
+                  <h4 className="font-bold mb-2 text-sm md:text-base">Acesso imediato</h4>
                   <p className="text-[#BFBFBF] text-xs md:text-sm">Comece a estudar em menos de 2 minutos</p>
                 </CardContent>
               </Card>
@@ -191,7 +197,7 @@ export default function LandingPage() {
               <Card className="bg-[#1A1A1A] border-[#2FFF4E]/20 text-center sm:col-span-2 lg:col-span-1">
                 <CardContent className="p-4 md:p-6">
                   <div className="text-xl md:text-2xl font-bold text-[#2FFF4E] mb-2">🛡️</div>
-                  <h4 className="font-bold mb-2 text-sm md:text-base">Garantia Total</h4>
+                  <h4 className="font-bold mb-2 text-sm md:text-base">Garantia total</h4>
                   <p className="text-[#BFBFBF] text-xs md:text-sm">7 dias para testar sem riscos</p>
                 </CardContent>
               </Card>
@@ -206,7 +212,7 @@ export default function LandingPage() {
           <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
             <div className="order-2 lg:order-1">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-center lg:text-left">
-                💸 Porque este curso vai explodir sua mente:
+                💸 Por que este curso vai explodir sua mente:
               </h2>
               <div className="space-y-4 md:space-y-6">
                 {[
@@ -243,7 +249,7 @@ export default function LandingPage() {
       <section id="resultados" className="py-16 md:py-20 bg-[#1A1A1A]">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6">
-            📈 Resultados Reais, Estratégias que Funcionam
+            📈 Resultados reais, estratégias que funcionam
           </h2>
           <p className="text-lg md:text-xl text-[#BFBFBF] mb-8 md:mb-12 max-w-4xl mx-auto">
             Nós aplicamos diariamente tudo o que ensinamos no curso. Não é teoria — são métodos que já geraram
@@ -275,7 +281,7 @@ export default function LandingPage() {
               })
             }}
           >
-            Ver Mais Resultados
+            Ver mais resultados
           </Button>
         </div>
       </section>
@@ -295,7 +301,7 @@ export default function LandingPage() {
             </div>
 
             <div className="order-1 lg:order-2 text-center lg:text-left">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8">👤 Conheça o Criador do Curso</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8">👤 Conheça o criador do curso</h2>
               <div className="space-y-4 md:space-y-6 text-base md:text-lg text-[#BFBFBF]">
                 <p>
                   Somos os <strong className="text-white">Primos Investe</strong>, traders especialistas em opções
@@ -319,7 +325,7 @@ export default function LandingPage() {
       <section id="depoimentos" className="py-16 md:py-20 bg-[#1A1A1A]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6">💬 Depoimentos Reais dos Nossos Alunos</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6">💬 Depoimentos reais dos nossos alunos</h2>
             <p className="text-lg md:text-xl text-[#BFBFBF] max-w-3xl mx-auto">
               Veja os resultados e feedbacks de quem já está transformando sua vida financeira com nosso método.
             </p>
@@ -334,7 +340,7 @@ export default function LandingPage() {
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8">
-              🛒 Você Está a Um Clique de Mudar Sua Vida Financeira
+              🛒 Você está a um clique de mudar sua vida financeira
             </h2>
             <p className="text-lg md:text-xl text-[#BFBFBF] mb-8 md:mb-12">
               Não espere mais. Aprenda a lucrar com estratégias reais e comece agora sua jornada no mercado de opções
@@ -344,10 +350,13 @@ export default function LandingPage() {
             <div className="flex justify-center">
               <Button
                 size="lg"
-                className="bg-[#2FFF4E] hover:bg-[#2FFF4E]/90 text-black font-bold text-base px-8 py-4 rounded-xl shadow-lg hover:shadow-[#2FFF4E]/25 transition-all duration-300 hover:scale-105 w-full max-w-sm"
+                className="bg-[#2FFF4E] hover:bg-[#2FFF4E]/90 text-black font-bold text-base sm:text-lg lg:text-xl px-6 sm:px-8 lg:px-12 py-4 sm:py-6 lg:py-8 rounded-xl shadow-lg hover:shadow-[#2FFF4E]/25 transition-all duration-300 hover:scale-105 max-w-full"
                 onClick={handleRedirectToCheckout}
               >
-                🔥 Quero Me Inscrever no Curso Agora
+                <span className="text-center leading-tight">
+                  🔥 Quero me inscrever
+                  <br className="sm:hidden" /> no curso agora
+                </span>
               </Button>
             </div>
 
