@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Check, Play, Instagram, Youtube, Shield, Clock, Users, Target, BarChart3 } from "lucide-react"
 import Image from "next/image"
 import TestimonialCarousel from "./testimonial-carousel"
+import LiveViewerCounter from "./live-viewer-counter"
 
 export default function LandingPage() {
   const handleRedirectToCheckout = () => {
@@ -167,12 +168,7 @@ export default function LandingPage() {
                   </Button>
                 </div>
 
-                <div className="mt-4 flex items-center justify-center space-x-4 text-sm text-[#BFBFBF]">
-                  <div className="flex items-center space-x-1">
-                    <div className="w-2 h-2 bg-[#2FFF4E] rounded-full animate-pulse"></div>
-                    <span className="text-xs sm:text-sm">Mais de 847 pessoas assistindo agora</span>
-                  </div>
-                </div>
+                <LiveViewerCounter />
               </div>
             </div>
 
